@@ -8,7 +8,7 @@ app.use(require("express-bearer-token"));
 app.use(cors());
 app.use(express.json());
 
-//this function is used to create a unique ID for a product
+//the below function is used to create a unique ID for a product
 function generateId(name){
     const crypto = require("crypto");
     return crypto.createHash('md5').update(name).digest("hex");
