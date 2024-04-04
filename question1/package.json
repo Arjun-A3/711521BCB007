@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-bearer-token": "^2.4.0",
+    "node-fetch": "^3.3.2"
   }
 }
