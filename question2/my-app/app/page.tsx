@@ -5,11 +5,11 @@ import axios from "axios";
 export default function Home() {
   
   interface MyData {
-    productName : String,
-    price : String,
-    rating : String,
-    discount : String,
-    availability : String
+    productName : string,
+    price : string,
+    rating : string,
+    discount : string,
+    availability : string
   }
 
   const [data, setData] = useState<MyData[]>([])
@@ -28,6 +28,13 @@ export default function Home() {
     }
     fetch();
   }, []);
+async function addToLocal(data : MyData){
+  window.localStorage.setItem("pn",data.productName);
+  window.localStorage.setItem("r",data.rating);
+  window.localStorage.setItem("pr",data.price);
+  window.localStorage.setItem("d",data.discount);
+  window.localStorage.setItem("av",data.availability);
+}
 
 
   return (
@@ -40,10 +47,7 @@ export default function Home() {
             <div key={index} className="mb-4">
             <p>productName: {item.productName}</p>
             <p>price: {item.price}</p>
-            <p>rating: {item.rating}</p>
-            <p>discount: {item.discount}</p>
-            <p>availability: {item.availability}</p>
-            <button className="border border-blue-700">View More......</button>
+            <button className="border border-blue-700" onClick={()=>{addToLocal(item)}}>View More......</button>
           </div>
           );
         })}
